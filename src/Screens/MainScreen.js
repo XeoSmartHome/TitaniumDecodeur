@@ -1,6 +1,7 @@
 import React from "react";
 import {View, StyleSheet} from "react-native";
 import TimisoaraButton from "../Components/TimisoaraButton";
+import {TimisoaraColors} from "../Style/Colors";
 
 
 const MainScreen = ({navigation}) => {
@@ -15,11 +16,7 @@ const MainScreen = ({navigation}) => {
 
     return (
         <View
-            style={{
-                flex: 1,
-                alignItems: "center",
-                justifyContent: "center"
-            }}
+            style={styles.screen}
         >
             <TimisoaraButton
                 title={'Scan ticket'}
@@ -37,9 +34,14 @@ const MainScreen = ({navigation}) => {
 
 
 const styles = StyleSheet.create({
+    screen: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center"
+    },
     button: {
         margin: 10,
-        backgroundColor: 'red'
+        backgroundColor: TimisoaraColors.MikadoYellow
     }
 })
 

@@ -2,20 +2,22 @@ import React from "react";
 import {Text, TouchableOpacity} from "react-native";
 
 
-const TimisoaraButton = ({title, onPress, style}) => {
+const TimisoaraButton = ({title, onPress, style, textStyle}) => {
     return (
         <TouchableOpacity
             onPress={onPress}
             style={{
-                padding: 10,
-                borderRadius: 20,
+                paddingVertical: 10,
+                paddingHorizontal: 30,
+                borderRadius: 100,
                 backgroundColor: 'yellow',
                 ...style
             }}
         >
             <Text
                 style={{
-                    fontSize: 20
+                    fontSize: 22,
+                    ...textStyle
                 }}
             >
                 {
