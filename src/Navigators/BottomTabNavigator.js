@@ -21,6 +21,7 @@ const BottomTabNavigator = () => {
             inactiveColor={TimisoaraColors.DarkLiver}
             barStyle={{ backgroundColor: TimisoaraColors.MikadoYellow }}
             initialRouteName="TicketScanner"
+            shifting={true}
         >
             <Tab.Screen
                 name="Statistics"

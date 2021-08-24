@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {StyleSheet, Text, View} from "react-native";
+import {ActivityIndicator, StyleSheet, Text, View} from "react-native";
 import {BarCodeScanner} from "expo-barcode-scanner";
 import TimisoaraButton from "../Components/TimisoaraButton";
 import {TimisoaraColors} from "../Style/Colors";
@@ -69,18 +69,32 @@ const TicketInfo = ({ticket, rescanButtonPress}) => {
 };
 
 
+const VerifyingTicketAnimation = () => {
+    return (
+        <View style={styles.animationContainer}>
+            <ActivityIndicator color={TimisoaraColors.MikadoYellow} size={100}/>
+            <Text style={styles.activityIndicatorText}>
+                Verifying Ticket
+            </Text>
+        </View>
+    )
+}
+
 const TicketScannerScreen = () => {
     const [hasCameraPermission, setHasCameraPermission] = useState(null);
     const [scanned, setScanned] = useState(false);
-    const [ticketInfo, setTicketInfo] = useState({});
+    const [ticketInfo, setTicketInfo] = useState(null);
 
     const onBarCodeScanned = ({type, data}) => {
         setScanned(true);
-        setTicketInfo(TICKET_INFO_EXAMPLE)
+        setTimeout(() => {
+            setTicketInfo(TICKET_INFO_EXAMPLE);
+        }, 2000)
     };
 
     const rescanButtonPress = () => {
         setScanned(false);
+        setTicketInfo(null);
     };
 
     useEffect(() => {
@@ -108,7 +122,10 @@ const TicketScannerScreen = () => {
                         style={styles.barCodeScanner}
                     />
                     :
-                    <TicketInfo ticket={ticketInfo} rescanButtonPress={rescanButtonPress}/>
+                    ticketInfo === null ?
+                        <VerifyingTicketAnimation/>
+                        :
+                        <TicketInfo ticket={ticketInfo} rescanButtonPress={rescanButtonPress}/>
 
             }
         </View>
@@ -149,7 +166,18 @@ const styles = StyleSheet.create({
         backgroundColor: TimisoaraColors.MikadoYellow,
         marginTop: 20,
         marginBottom: 20
-    }
+    },
+    animationContainer: {
+        flex: 1,
+        justifyContent: "center"
+    },
+    activityIndicatorText: {
+        color: TimisoaraColors.MikadoYellow,
+        fontSize: 20,
+        alignSelf: 'center',
+        fontWeight: 'bold',
+        padding: 10
+    },
 });
 
 export default TicketScannerScreen;
