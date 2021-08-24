@@ -6,9 +6,12 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import Foundation from "react-native-vector-icons/Foundation";
 import Feather from "react-native-vector-icons/Feather";
 import {TimisoaraColors} from "../Style/Colors";
+import SettingsScreen from "../Screens/SettingsScreen";
+import {translator} from "../Internalization";
 
 
 const Tab = createMaterialBottomTabNavigator();
+const t = translator('bottomBarNavigator');
 
 
 const BottomTabNavigator = () => {
@@ -23,7 +26,7 @@ const BottomTabNavigator = () => {
                 name="Statistics"
                 component={StatisticsScreen}
                 options={{
-                    tabBarLabel: "Statistics",
+                    tabBarLabel: t('statistics'),
                     tabBarIcon: ({color}) => (
                         <Foundation
                             name="graph-bar"
@@ -37,7 +40,7 @@ const BottomTabNavigator = () => {
                 name="TicketScanner"
                 component={TicketScannerScreen}
                 options={{
-                    tabBarLabel: "Ticket Scanner",
+                    tabBarLabel: t('ticketScanner'),
                     tabBarIcon: ({focused, color, size}) => (
                         <MaterialCommunityIcons
                             name="qrcode-scan"
@@ -48,9 +51,9 @@ const BottomTabNavigator = () => {
             />
             <Tab.Screen
                 name="Settings"
-                component={StatisticsScreen}
+                component={SettingsScreen}
                 options={{
-                    tabBarLabel: "Settings",
+                    tabBarLabel: t('settings'),
                     tabBarIcon: ({color}) => (
                         <Feather
                             name="settings"

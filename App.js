@@ -1,26 +1,20 @@
 import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from "@react-navigation/native";
-import BottomTabNavigator from "./src/Navigators/BottomTabNavigator";
-import {TimisoaraColors} from "./src/Style/Colors";
+import StackNavigator from "./src/Navigators/StackNavigator";
+import I18n from 'i18n-js';
 
 
-const Stack = createNativeStackNavigator();
+I18n.fallbacks = true;
+I18n.translations = {
+    'en': require('./assets/languages/english.json'),
+    'ro': require('./assets/languages/romanian.json')
+};
+
 
 export default function App() {
     return (
         <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen
-                    name={'TitaniumDecodeur'}
-                    component={BottomTabNavigator}
-                    options={{
-                        headerStyle:{
-                            backgroundColor: TimisoaraColors.MikadoYellow
-                        }
-                    }}
-                />
-            </Stack.Navigator>
+            <StackNavigator/>
         </NavigationContainer>
     );
 }

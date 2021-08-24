@@ -3,15 +3,8 @@ import {StyleSheet, Text, View} from "react-native";
 import {BarCodeScanner} from "expo-barcode-scanner";
 import TimisoaraButton from "../Components/TimisoaraButton";
 import {TimisoaraColors} from "../Style/Colors";
-
-
-const TICKET_INFO_EXAMPLE = {
-    firstName: 'Claudiu',
-    lastName: 'Neamtu',
-    event: 'Boat ride on the Bega',
-    startTime: 'Today 25 august',
-    endTime: null
-};
+import {TICKET_INFO_EXAMPLE} from "../FakeBackend/tickets";
+import Foundation from "react-native-vector-icons/Foundation";
 
 
 const TicketField = ({label, value}) => {
@@ -44,6 +37,8 @@ const TicketInfo = ({ticket, rescanButtonPress}) => {
         <View
             style={styles.ticketInfo}
         >
+            <Foundation name={'checkbox'} size={100} color={'green'}/>
+
             <TicketField
                 label={'First name'}
                 value={ticket.firstName}
@@ -76,8 +71,8 @@ const TicketInfo = ({ticket, rescanButtonPress}) => {
 
 const TicketScannerScreen = () => {
     const [hasCameraPermission, setHasCameraPermission] = useState(null);
-    const [scanned, setScanned] = useState(true);
-    const [ticketInfo, setTicketInfo] = useState(TICKET_INFO_EXAMPLE);
+    const [scanned, setScanned] = useState(false);
+    const [ticketInfo, setTicketInfo] = useState({});
 
     const onBarCodeScanned = ({type, data}) => {
         setScanned(true);
@@ -126,7 +121,8 @@ const styles = StyleSheet.create({
         flex: 1
     },
     barCodeScanner: {
-        flex: 1
+        flex: 1,
+        margin: 10
     },
     ticketInfo: {
         flex: 1,
@@ -139,9 +135,9 @@ const styles = StyleSheet.create({
         marginVertical: 8,
         borderRadius: 20,
         paddingHorizontal: 16,
-        paddingVertical: 8,
+        paddingVertical: 6,
     },
-    ticketFieldLabel:{
+    ticketFieldLabel: {
         borderRadius: 20,
         fontSize: 16
     },
@@ -151,7 +147,8 @@ const styles = StyleSheet.create({
     },
     rescanButton: {
         backgroundColor: TimisoaraColors.MikadoYellow,
-        marginTop: 20
+        marginTop: 20,
+        marginBottom: 20
     }
 });
 

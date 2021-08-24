@@ -1,0 +1,18 @@
+{
+    "language": "Romana",
+    "bottomBarNavigator": {
+        "statistics": "Statistici",
+        "ticketScanner": "Scanare Bilet",
+        "settings": "Setari"
+    },
+    "accountScreen": {
+        "account": "Cont",
+        "language": "Limba"
+    },
+    "ticketScannerScreen": {
+
+    },
+    "languageScreen": {
+        "header": "Limba"
+    }
+}

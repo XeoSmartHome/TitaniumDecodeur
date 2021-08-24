@@ -1,0 +1,18 @@
+{
+    "language": "English",
+    "bottomBarNavigator": {
+        "statistics": "Statistics",
+        "ticketScanner": "Ticket Scanner",
+        "settings": "Settings"
+    },
+    "accountScreen": {
+        "account": "Account",
+        "language": "Language"
+    },
+    "ticketScannerScreen": {
+
+    },
+    "languageScreen": {
+        "header": "Language"
+    }
+}
