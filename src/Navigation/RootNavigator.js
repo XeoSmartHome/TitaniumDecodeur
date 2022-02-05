@@ -1,7 +1,10 @@
+import React from "react";
+import BottomTabNavigator from "./BottomTabNavigator";
+
 
 const RootNavigator = () => {
     return (
-        null
+        <BottomTabNavigator />
     );
 };
 

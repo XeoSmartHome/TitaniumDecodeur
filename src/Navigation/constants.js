@@ -1,0 +1,5 @@
+export const SCREENS = {
+    SCAN_TICKET: "SCAN_TICKET",
+    SETTINGS: "SETTINGS",
+    STATISTICS: "STATISTICS",
+};
